@@ -9,14 +9,19 @@
 #import "FlipsideViewController.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate> {
-	
+@private 
 	NSString *exer[11];
 	NSString *TIME;
 	
-	int times[6];
+    int exerTime;
+    int betweenTime;
+    int breakTime;
+    int numExer;
+    int numSets;
 	
 	//Counters
 	int currentExer;	// 1 <= currentExer <= 10
+    int currentSet;
 	bool doingExercise;
 	
 	
@@ -31,6 +36,7 @@
 	IBOutlet UIButton *resetButton;
 	IBOutlet UIToolbar *toolBar1;
 	IBOutlet UITableView *exerTable;
+
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *timeDisplay;

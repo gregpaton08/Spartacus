@@ -17,6 +17,7 @@
 
 #define AlertViewCheck 0
 #define AlertViewReset 1
+#define AlertViewSettings 2
 
 
 
@@ -42,7 +43,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
     static NSString *CellIdentifier = @"Cell";
-	
+    int index = currentExer + [indexPath row];
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
@@ -53,11 +55,19 @@
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	exerTable.scrollEnabled = NO;
 	
-	if (indexPath.section == 0)
+	if (indexPath.section == 0 && doingExercise == NO)
+        cell.textLabel.text = @"Break";
+    else if (indexPath.section == 0)
 		cell.textLabel.text = [NSString	 stringWithFormat:@"%s", [exer[currentExer] UTF8String]];
-	else 
-		cell.textLabel.text = [NSString	 stringWithFormat:@"%s", [exer[[indexPath row] + currentExer + 1] UTF8String]];
-	
+	else {
+        if (index > numExer)
+            index = index % numExer;
+        NSString *name = exer[[indexPath row] + index];
+        if (name == NULL)
+            name = @"";
+		cell.textLabel.text = [NSString	 stringWithFormat:@"%s", [name UTF8String]];
+	}
+    
     return cell;
 }
 
@@ -96,7 +106,6 @@
 	}
 	else {
 		[self pause];
-		timerIsRunning = NO;
 	}
 }
 
@@ -122,12 +131,12 @@
 	exer[8] = [defaults objectForKey:@"ex8"];
 	exer[9] = [defaults objectForKey:@"ex9"];
 	exer[10] = [defaults objectForKey:@"ex10"];
-	
-	times[1] = [[defaults objectForKey:@"exerTime"] intValue];
-	times[2] = [[defaults objectForKey:@"betweenTime"] intValue];
-	times[3] = [[defaults objectForKey:@"breakTime"] intValue];
-	times[4] = [[defaults objectForKey:@"numOfExer"] intValue];
-	times[5] = [[defaults objectForKey:@"numOfSets"] intValue];
+    
+	exerTime = [[defaults objectForKey:@"exerTime"] intValue];
+	betweenTime = [[defaults objectForKey:@"betweenTime"] intValue];
+	breakTime = [[defaults objectForKey:@"breakTime"] intValue];
+	numExer = [[defaults objectForKey:@"numOfExer"] intValue];
+	numSets = [[defaults objectForKey:@"numOfSets"] intValue];
 }
 
 
@@ -140,17 +149,17 @@
 - (void)start	{
 	
 	timerIsRunning = YES;
+    doingExercise = YES;
 	[self setTimer];
 	[startPause setTitle:@"Pause" forState:UIControlStateNormal];
 }
 
-- (void)pause	{
-	
+- (void)pause	{	
 	
 	timerIsRunning = NO;
+    doingExercise = NO;
 	[timer invalidate];
 	timer = nil;
-	//self.timeDisplay.text = TIME;
 	[startPause setTitle:@"Start" forState:UIControlStateNormal];
 }
 
@@ -159,6 +168,8 @@
 	if (timerIsRunning) {
 		[self pause];
 	}
+    currentExer = 1;
+    currentSet = 1;
 	
 	UIAlertView *alertReset = [[UIAlertView alloc] initWithTitle:@"About to Reset Timer" message:@"Continue?"
 														delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
@@ -192,31 +203,30 @@
 	else {
 		padding = @"";
 	}
-
-	//update disp
-	TIME = [[NSString alloc] initWithFormat:@"%0.0f:%s%.1f", floor(count/60), [padding UTF8String], fmod(count, 60)];
-	timeDisplay.text = TIME;
 	
 	//Logic for displaying the exercises
-	//times[1] = exercise time
-	//times[2] = time in between exercises
-	//times[3] = break time
-	//times[4] = number of exercise
-	//times[5] = number of sets
-	/*if (count+0.1 >= times[1] && doingExercise) {
+	if (count+0.1 >= exerTime && doingExercise && currentExer < numExer && currentSet < numSets) {
 		count = 0.0;
 		doingExercise = NO;
 		++currentExer;
-		[exerTable reloadData];
 	}
-	else if (count+0.1 >= times[2] && !doingExercise)	{
+	else if (count+0.1 >= betweenTime && doingExercise == NO)	{
 		count = 0.0;
 		doingExercise = YES;
-	}*/
+	}
+    else if (currentExer >= numExer) {
+        currentExer = 1;
+        ++currentSet;
+    }
+    else if (currentSet >= numSets) {
+        // DONE!
+    }
 	
-	
-	
-	
+    
+	//update disp
+    [exerTable reloadData];
+	TIME = [[NSString alloc] initWithFormat:@"%0.0f:%s%.1f", floor(count/60), [padding UTF8String], fmod(count, 60)];
+	timeDisplay.text = TIME;	
 	
 	[TIME release];
 }
@@ -261,6 +271,17 @@
 			[exerTable reloadData];
 		}
 	}
+    else if (alertView.tag == AlertViewSettings) {
+        if (buttonIndex == 1) {
+            FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
+            controller.delegate = self;
+            
+            controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+            [self presentViewController:controller animated:YES completion:nil];
+            
+            [controller release];
+        }
+    }
 }
 
 
@@ -276,7 +297,6 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {	
-	
 	//*************
 	//doingExercise = YES;
 	//*************
@@ -302,24 +322,36 @@
 
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller {
+    // reset everything
+    timerIsRunning = NO;
+    doingExercise = NO;
+    currentExer = 1;
+    currentSet = 1;
+    [exerTable reloadData];
     
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
-- (IBAction)showInfo:(id)sender {    
-	//pause timer
-	if (timerIsRunning)
+- (IBAction)showInfo:(id)sender {     
+	if (timerIsRunning) {
 		[self pause];
-	
-	
-	FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
-	controller.delegate = self;
-	
-	controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-	[self presentViewController:controller animated:YES completion:nil];
-	
-	[controller release];
+        
+        UIAlertView *alertSettings = [[UIAlertView alloc] initWithTitle:@"Changing settings will reset current workout"             message:@"Continue?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        alertSettings.tag = AlertViewSettings;
+        [alertSettings show];
+        [alertSettings release];
+        
+    }
+    else { 
+        FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
+        controller.delegate = self;
+        
+        controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:controller animated:YES completion:nil];
+        
+        [controller release];
+    }
 }
 
 

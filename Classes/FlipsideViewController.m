@@ -98,6 +98,7 @@ CGFloat animatedDistance;
 //UIAlertView: Clear and Reset Functions
 #define AlertViewClear 0
 #define AlertViewReset 1
+#define AlertViewSettings 2
 
 - (IBAction)clear:(id)sender	{
 	UIAlertView *alertClear = [[UIAlertView alloc] initWithTitle:@"About To Clear Exercises" message:@"Continue?"
