@@ -1,0 +1,310 @@
+Tspart1
+v7
+r0
+t347854940.982274
+cCheck dependencies
+cProcessInfoPlistFile "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/Info.plist" spart1-Info.plist
+cCompileXIB "/Users/carlos/Documents/xcode projects/spart1/FlipsideView.xib"
+cCompileXIB "/Users/carlos/Documents/xcode projects/spart1/MainView.xib"
+cCompileXIB "/Users/carlos/Documents/xcode projects/spart1/MainWindow.xib"
+cProcessPCH /var/folders/te/tejhI3x-EY0fF+EZi07J2k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/spart1_Prefix-chzikccrwfyirubvglluvtaugewp/spart1_Prefix.pch.gch spart1_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/main.o "/Users/carlos/Documents/xcode projects/spart1/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/spart1AppDelegate.o "/Users/carlos/Documents/xcode projects/spart1/Classes/spart1AppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/MainViewController.o "/Users/carlos/Documents/xcode projects/spart1/Classes/MainViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/FlipsideViewController.o "/Users/carlos/Documents/xcode projects/spart1/Classes/FlipsideViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1" normal i386
+cGenerateDSYMFile "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app.dSYM" "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1"
+cTouch "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app"
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk
+c000000004D5C9B4E0000000000000110
+t1297914702
+s272
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c000000004D54CFFA00000000002999B0
+t1297403898
+s2726320
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c000000004D54CFE5000000000029DA70
+t1297403877
+s2742896
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
+c000000004D54CFB80000000000001466
+t1297403832
+s5222
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
+c000000004D5615B40000000000000AA1
+t1297487284
+s2721
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c000000004D5616030000000000766870
+t1297487363
+s7759984
+
+N/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk/usr/include/Availability.h
+c000000004D4F7A2B0000000000001B19
+t1297054251
+s6937
+
+N/Users/carlos/Documents/xcode projects/spart1/Classes/FlipsideViewController.h
+c000000004F0B9FAB0000000000000231
+t1326161835
+s561
+i<UIKit/UIKit.h>
+
+N/Users/carlos/Documents/xcode projects/spart1/Classes/FlipsideViewController.m
+c000000004F0B9FAB0000000000000456
+t1326161835
+s1110
+i"FlipsideViewController.h"
+
+N/Users/carlos/Documents/xcode projects/spart1/Classes/MainViewController.h
+c000000004F0B9FAB0000000000000134
+t1326161835
+s308
+i"FlipsideViewController.h"
+
+N/Users/carlos/Documents/xcode projects/spart1/Classes/MainViewController.m
+c000000004F0B9FAB00000000000005D3
+t1326161835
+s1491
+i"MainViewController.h"
+
+N/Users/carlos/Documents/xcode projects/spart1/Classes/spart1AppDelegate.h
+c000000004F0B9FAB00000000000001DC
+t1326161835
+s476
+i<UIKit/UIKit.h>
+
+N/Users/carlos/Documents/xcode projects/spart1/Classes/spart1AppDelegate.m
+c000000004F0B9FAB0000000000000AB6
+t1326161835
+s2742
+i"spart1AppDelegate.h"
+i"MainViewController.h"
+
+N/Users/carlos/Documents/xcode projects/spart1/FlipsideView.xib
+c000000004F0B9FAB0000000000004C5D
+t1326161835
+s19549
+
+N/Users/carlos/Documents/xcode projects/spart1/MainView.xib
+c000000004F0BA0D8000000000000492E
+t1326162136
+s18734
+
+N/Users/carlos/Documents/xcode projects/spart1/MainWindow.xib
+c000000004F0B9FAB0000000000005094
+t1326161835
+s20628
+
+N/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app
+t1326162140
+s272
+
+N/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app.dSYM
+t1326162140
+s102
+
+N/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/FlipsideView.nib
+t1326162139
+s2077
+
+N/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/Info.plist
+t1326162138
+s587
+
+N/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/MainView.nib
+t1326162139
+s2381
+
+N/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/MainWindow.nib
+t1326162139
+s1708
+
+N/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/PkgInfo
+t1326162138
+s8
+
+N/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1
+t1326162140
+s19044
+
+N/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/FlipsideViewController.o
+t1326162140
+s41300
+
+N/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/MainViewController.o
+t1326162140
+s40960
+
+N/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/main.o
+t1326162140
+s6324
+
+N/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/spart1.LinkFileList
+c000000004F0BA0DA0000000000000229
+t1326162138
+s553
+
+N/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/spart1AppDelegate.o
+t1326162140
+s51312
+
+N/Users/carlos/Documents/xcode projects/spart1/main.m
+c000000004F0B9FAB0000000000000169
+t1326161835
+s361
+i<UIKit/UIKit.h>
+
+N/Users/carlos/Documents/xcode projects/spart1/spart1_Prefix.pch
+c000000004F0B9FAB000000000000013E
+t1326161835
+s318
+i<Availability.h>
+i<Foundation/Foundation.h>
+i<UIKit/UIKit.h>
+
+N/var/folders/te/tejhI3x-EY0fF+EZi07J2k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/spart1_Prefix-chzikccrwfyirubvglluvtaugewp/spart1_Prefix.pch.gch
+t1326162140
+s15814064
+
+Nspart1-Info.plist
+c000000004F0B9FAB000000000000038D
+t1326161835
+s909
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies347854938#347854938#0(0"0(0#1#0"8618406656#0"0#
+
+CCompileC build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/FlipsideViewController.o "/Users/carlos/Documents/xcode projects/spart1/Classes/FlipsideViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s347854940.800708
+e347854940.885835
+r1
+xCompileC
+xbuild/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/FlipsideViewController.o
+x/Users/carlos/Documents/xcode projects/spart1/Classes/FlipsideViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@86"Compile /Users/carlos/Documents/xcode projects/spart1/Classes/FlipsideViewController.m347854940#347854940#0(0"0(0#0#78"/Users/carlos/Documents/xcode projects/spart1/Classes/FlipsideViewController.m8615074816#2037"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-generated-files.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-own-target-headers.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-all-target-headers.hmap" -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-project-headers.hmap" "-F/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator" "-I/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/include" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources/i386" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources" -include /var/folders/te/tejhI3x-EY0fF+EZi07J2k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/spart1_Prefix-chzikccrwfyirubvglluvtaugewp/spart1_Prefix.pch -c "/Users/carlos/Documents/xcode projects/spart1/Classes/FlipsideViewController.m" -o "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/FlipsideViewController.o"0#
+
+CCompileC build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/MainViewController.o "/Users/carlos/Documents/xcode projects/spart1/Classes/MainViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s347854940.760678
+e347854940.839337
+r1
+xCompileC
+xbuild/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/MainViewController.o
+x/Users/carlos/Documents/xcode projects/spart1/Classes/MainViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@82"Compile /Users/carlos/Documents/xcode projects/spart1/Classes/MainViewController.m347854940#347854940#0(0"0(0#0#74"/Users/carlos/Documents/xcode projects/spart1/Classes/MainViewController.m8616014784#2029"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-generated-files.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-own-target-headers.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-all-target-headers.hmap" -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-project-headers.hmap" "-F/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator" "-I/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/include" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources/i386" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources" -include /var/folders/te/tejhI3x-EY0fF+EZi07J2k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/spart1_Prefix-chzikccrwfyirubvglluvtaugewp/spart1_Prefix.pch -c "/Users/carlos/Documents/xcode projects/spart1/Classes/MainViewController.m" -o "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/MainViewController.o"0#
+
+CCompileC build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/main.o "/Users/carlos/Documents/xcode projects/spart1/main.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s347854940.701431
+e347854940.760561
+r1
+xCompileC
+xbuild/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/main.o
+x/Users/carlos/Documents/xcode projects/spart1/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@60"Compile /Users/carlos/Documents/xcode projects/spart1/main.m347854940#347854940#0(0"0(0#0#52"/Users/carlos/Documents/xcode projects/spart1/main.m8614352416#1993"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-generated-files.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-own-target-headers.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-all-target-headers.hmap" -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-project-headers.hmap" "-F/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator" "-I/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/include" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources/i386" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources" -include /var/folders/te/tejhI3x-EY0fF+EZi07J2k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/spart1_Prefix-chzikccrwfyirubvglluvtaugewp/spart1_Prefix.pch -c "/Users/carlos/Documents/xcode projects/spart1/main.m" -o "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/main.o"0#
+
+CCompileC build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/spart1AppDelegate.o "/Users/carlos/Documents/xcode projects/spart1/Classes/spart1AppDelegate.m" normal i386 objective-c com.apple.compilers.gcc.4_2
+s347854940.703367
+e347854940.800591
+r1
+xCompileC
+xbuild/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/spart1AppDelegate.o
+x/Users/carlos/Documents/xcode projects/spart1/Classes/spart1AppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@81"Compile /Users/carlos/Documents/xcode projects/spart1/Classes/spart1AppDelegate.m347854940#347854940#0(0"0(0#0#73"/Users/carlos/Documents/xcode projects/spart1/Classes/spart1AppDelegate.m8618708352#2027"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-generated-files.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-own-target-headers.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-all-target-headers.hmap" -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-project-headers.hmap" "-F/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator" "-I/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/include" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources/i386" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources" -include /var/folders/te/tejhI3x-EY0fF+EZi07J2k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/spart1_Prefix-chzikccrwfyirubvglluvtaugewp/spart1_Prefix.pch -c "/Users/carlos/Documents/xcode projects/spart1/Classes/spart1AppDelegate.m" -o "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/spart1AppDelegate.o"0#
+
+CCompileXIB "/Users/carlos/Documents/xcode projects/spart1/FlipsideView.xib"
+s347854938.635415
+e347854939.112027
+r1
+xCompileXIB
+x/Users/carlos/Documents/xcode projects/spart1/FlipsideView.xib
+lSLF07#2@27"CompileXIB FlipsideView.xib347854938#347854939#0(0"0(0#0#62"/Users/carlos/Documents/xcode projects/spart1/FlipsideView.xib8602510944#600"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.3    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/FlipsideView.nib" "/Users/carlos/Documents/xcode projects/spart1/FlipsideView.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk0#
+
+CCompileXIB "/Users/carlos/Documents/xcode projects/spart1/MainView.xib"
+s347854938.636131
+e347854939.170417
+r1
+xCompileXIB
+x/Users/carlos/Documents/xcode projects/spart1/MainView.xib
+lSLF07#2@23"CompileXIB MainView.xib347854938#347854939#0(0"0(0#0#58"/Users/carlos/Documents/xcode projects/spart1/MainView.xib8599811776#592"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.3    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/MainView.nib" "/Users/carlos/Documents/xcode projects/spart1/MainView.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk0#
+
+CCompileXIB "/Users/carlos/Documents/xcode projects/spart1/MainWindow.xib"
+s347854939.112121
+e347854939.491793
+r1
+xCompileXIB
+x/Users/carlos/Documents/xcode projects/spart1/MainWindow.xib
+lSLF07#2@25"CompileXIB MainWindow.xib347854939#347854939#0(0"0(0#0#60"/Users/carlos/Documents/xcode projects/spart1/MainWindow.xib8615244576#596"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 4.3    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/MainWindow.nib" "/Users/carlos/Documents/xcode projects/spart1/MainWindow.xib" --sdk /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk0#
+
+CGenerateDSYMFile "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app.dSYM" "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1"
+s347854940.959346
+e347854940.979332
+r1
+xGenerateDSYMFile
+x/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app.dSYM
+x/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1
+lSLF07#2@106"GenerateDSYMFile build/Debug-iphonesimulator/spart1.app.dSYM build/Debug-iphonesimulator/spart1.app/spart1347854940#347854940#0(0"0(0#0#91"/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart18607334976#407"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1" -o "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app.dSYM"0#
+
+CLd "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1" normal i386
+s347854940.885927
+e347854940.959202
+r1
+xLd
+x/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1
+xnormal
+xi386
+lSLF07#2@96"Link /Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1347854940#347854940#0(0"0(0#0#0"8607640448#940"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk "-L/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator" "-F/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator" -filelist "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/Objects-normal/i386/spart1.LinkFileList" -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -framework Foundation -framework UIKit -framework CoreGraphics -o "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/spart1"0#
+
+CProcessInfoPlistFile "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/Info.plist" spart1-Info.plist
+s347854938.596551
+e347854938.635323
+r1
+xProcessInfoPlistFile
+x/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/Info.plist
+xspart1-Info.plist
+lSLF07#2@25"Process spart1-Info.plist347854938#347854938#0(0"0(0#0#63"/Users/carlos/Documents/xcode projects/spart1/spart1-Info.plist8607403552#503"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility spart1-Info.plist -genpkginfo "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/PkgInfo" -expandbuildsettings -format binary -platform iphonesimulator -o "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app/Info.plist"0#
+
+CProcessPCH /var/folders/te/tejhI3x-EY0fF+EZi07J2k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/spart1_Prefix-chzikccrwfyirubvglluvtaugewp/spart1_Prefix.pch.gch spart1_Prefix.pch normal i386 objective-c com.apple.compilers.gcc.4_2
+s347854939.491917
+e347854940.700960
+r1
+xProcessPCH
+x/var/folders/te/tejhI3x-EY0fF+EZi07J2k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/spart1_Prefix-chzikccrwfyirubvglluvtaugewp/spart1_Prefix.pch.gch
+xspart1_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@28"Precompile spart1_Prefix.pch347854939#347854940#0(0"0(0#0#63"/Users/carlos/Documents/xcode projects/spart1/spart1_Prefix.pch8614629120#1877"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c-header -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.3.sdk -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch -D__IPHONE_OS_VERSION_MIN_REQUIRED=40300 -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-generated-files.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-own-target-headers.hmap" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-all-target-headers.hmap" -iquote "/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/spart1-project-headers.hmap" "-F/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator" "-I/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/include" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources/i386" "-I/Users/carlos/Documents/xcode projects/spart1/build/spart1.build/Debug-iphonesimulator/spart1.build/DerivedSources" -c "/Users/carlos/Documents/xcode projects/spart1/spart1_Prefix.pch" -o /var/folders/te/tejhI3x-EY0fF+EZi07J2k+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/spart1_Prefix-chzikccrwfyirubvglluvtaugewp/spart1_Prefix.pch.gch0#
+
+CTouch "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app"
+s347854940.979435
+e347854940.982236
+r1
+xTouch
+x/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app
+lSLF07#2@90"Touch /Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app347854940#347854940#0(0"0(0#0#0"8606234144#295"    cd "/Users/carlos/Documents/xcode projects/spart1"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/carlos/Documents/xcode projects/spart1/build/Debug-iphonesimulator/spart1.app"0#
+
