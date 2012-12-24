@@ -18,9 +18,7 @@
 #define AlertViewCheck 0
 #define AlertViewReset 1
 #define AlertViewSettings 2
-
-
-
+#define AlertViewDone 3
 
 
 
@@ -35,8 +33,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if (section == 0)
 		return 1;
-	else 
-		return (10 - currentExer);
+	else
+        return 3;
+		//return (10 - currentExer);
 }
 
 // Customize the appearance of table view cells.
@@ -55,15 +54,24 @@
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	exerTable.scrollEnabled = NO;
 	
-	if (indexPath.section == 0 && doingExercise == NO)
+    if (indexPath.section == 0 && doingExercise == NO && timerIsRunning == NO)
+        cell.textLabel.text = @"Ready?";
+	else if (indexPath.section == 0 && doingExercise == NO)
         cell.textLabel.text = @"Break";
     else if (indexPath.section == 0)
 		cell.textLabel.text = [NSString	 stringWithFormat:@"%s", [exer[currentExer] UTF8String]];
 	else {
-        if (index > numExer)
-            index = index % numExer;
-        NSString *name = exer[[indexPath row] + index];
-        if (name == NULL)
+        NSString *name;
+        if (doingExercise == YES)
+            ++index;
+        if (index > numExer && currentSet < numSets)
+            index = index - numExer;
+        printf("%d\n", index);
+//        if ([indexPath row] + index < numExer)
+//            name = exer[[indexPath row] + index];
+        if (index <= numExer)
+            name = exer[index];
+        else
             name = @"";
 		cell.textLabel.text = [NSString	 stringWithFormat:@"%s", [name UTF8String]];
 	}
@@ -89,13 +97,6 @@
 
 
 
-
-
-
-
-
-
-
 #pragma mark IBAction
 
 //startPause and reset press response functions
@@ -109,10 +110,18 @@
 	}
 }
 
-- (IBAction)resetPress:(id)sender	{
+- (IBAction)resetPress:(id)sender {
+	if (timerIsRunning) {
+		[self pause];
+	}
 	
-	[self reset];
+	UIAlertView *alertReset = [[UIAlertView alloc] initWithTitle:@"About to Reset Timer" message:@"Continue?"
+                                                        delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+	alertReset.tag = AlertViewReset;
+	[alertReset show];
+	[alertReset release];
 }
+
 
 
 #pragma mark Set Array 
@@ -141,8 +150,6 @@
 
 
 
-
-
 #pragma mark Timer Controls 
 
 //timer controls: start, pause, reset
@@ -150,6 +157,7 @@
 	
 	timerIsRunning = YES;
     doingExercise = YES;
+    [exerTable reloadData];
 	[self setTimer];
 	[startPause setTitle:@"Pause" forState:UIControlStateNormal];
 }
@@ -164,21 +172,15 @@
 }
 
 - (void)reset	{
-	
-	if (timerIsRunning) {
-		[self pause];
-	}
+    timerIsRunning = NO;
+    doingExercise = NO;
     currentExer = 1;
     currentSet = 1;
-	
-	UIAlertView *alertReset = [[UIAlertView alloc] initWithTitle:@"About to Reset Timer" message:@"Continue?"
-														delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-	alertReset.tag = AlertViewReset;
-	[alertReset show];
-	[alertReset release];
+    count = 0.0;
+    self.timeDisplay.text = @"0:00.0";
+    [self setExerArray];
+    [exerTable reloadData];
 }
-
-
 
 
 
@@ -195,6 +197,41 @@
 	//increment count by 0.1 seconds
 	count += 0.1;
 	
+	//Logic for displaying the exercises
+	if (count+0.1 >= exerTime && doingExercise && currentExer < numExer && currentSet < numSets) {
+		count = 0.0;
+		doingExercise = NO;
+		++currentExer;
+        [exerTable reloadData];
+	}
+	else if (count+0.1 >= betweenTime && doingExercise == NO)	{
+		count = 0.0;
+		doingExercise = YES;
+        [exerTable reloadData];
+	}
+    else if (currentExer >= numExer) {
+        currentExer = 1;
+        ++currentSet;
+        [exerTable reloadData];
+    }
+    else if (currentSet >= numSets) {        
+        if (timerIsRunning) {
+            [self pause];
+        }
+        currentExer = 1;
+        currentSet = 1;
+        count = 0.0;
+        self.timeDisplay.text = @"0:00.0";
+        currentExer = 1;
+        [exerTable reloadData];
+        
+        UIAlertView *alertDone = [[UIAlertView alloc] initWithTitle:@"You're done!" message:@"Great workout"
+                                                      delegate:self cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+        alertDone.tag = AlertViewDone;
+        [alertDone show];
+        [alertDone release];
+    }
+    
 	//padding values less than 10 with a 0
 	NSString *padding;
 	if (fmod(count, 60) < 10)	{
@@ -202,29 +239,9 @@
 	}
 	else {
 		padding = @"";
-	}
-	
-	//Logic for displaying the exercises
-	if (count+0.1 >= exerTime && doingExercise && currentExer < numExer && currentSet < numSets) {
-		count = 0.0;
-		doingExercise = NO;
-		++currentExer;
-	}
-	else if (count+0.1 >= betweenTime && doingExercise == NO)	{
-		count = 0.0;
-		doingExercise = YES;
-	}
-    else if (currentExer >= numExer) {
-        currentExer = 1;
-        ++currentSet;
-    }
-    else if (currentSet >= numSets) {
-        // DONE!
-    }
-	
+	}	
     
 	//update disp
-    [exerTable reloadData];
 	TIME = [[NSString alloc] initWithFormat:@"%0.0f:%s%.1f", floor(count/60), [padding UTF8String], fmod(count, 60)];
 	timeDisplay.text = TIME;	
 	
@@ -252,22 +269,21 @@
 
 
 
-
-
 #pragma mark Alert Action
 
 //Alert for exercise check and reset button
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (alertView.tag == AlertViewCheck) {
-		if (buttonIndex == 1)	{
+		if (buttonIndex == 1) {
 			[self showInfo: self];
 		}
 	}
-	else if (alertView.tag == AlertViewReset)	{
+	else if (alertView.tag == AlertViewReset) {
 		if (buttonIndex == 1) {
+            currentExer = 1;
+            currentSet = 1;
 			count = 0.0;
 			self.timeDisplay.text = @"0:00.0";
-			currentExer = 1;
 			[exerTable reloadData];
 		}
 	}
@@ -282,14 +298,12 @@
             [controller release];
         }
     }
+    else if (alertView.tag == AlertViewDone) {
+		if (buttonIndex == 0) {
+            [self reset];
+		}
+    }
 }
-
-
-
-
-
-
-
 
 
 
@@ -297,12 +311,6 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {	
-	//*************
-	//doingExercise = YES;
-	//*************
-	
-	
-	
 	//check if the exercises are set
 	[self checkIfExerSet];
 	[self setExerArray];
@@ -318,16 +326,8 @@
 }
 
 
-
-
-
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller {
-    // reset everything
-    timerIsRunning = NO;
-    doingExercise = NO;
-    currentExer = 1;
-    currentSet = 1;
-    [exerTable reloadData];
+    [self reset];
     
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
