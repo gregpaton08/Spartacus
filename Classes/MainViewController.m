@@ -2,8 +2,8 @@
 //  MainViewController.m
 //  spart1
 //
-//  Created by Carlos Sanchez on 1/9/12.
-//  Copyright 2012 __MyCompanyName__. All rights reserved.
+//  Created by Greg Paton on 1/9/12.
+//  Copyright 2012 __GSP__. All rights reserved.
 //
 
 #import "MainViewController.h"
@@ -67,8 +67,6 @@
         if (index > numExer && currentSet < numSets)
             index = index - numExer;
         printf("%d\n", index);
-//        if ([indexPath row] + index < numExer)
-//            name = exer[[indexPath row] + index];
         if (index <= numExer)
             name = exer[index];
         else
@@ -101,9 +99,8 @@
 
 //startPause and reset press response functions
 - (IBAction)startPausePress:(id)sender	{
-	if (!timerIsRunning)	{
+	if (!timerIsRunning) {
 		[self start];
-		timerIsRunning = YES;
 	}
 	else {
 		[self pause];
@@ -153,17 +150,15 @@
 #pragma mark Timer Controls 
 
 //timer controls: start, pause, reset
-- (void)start	{
-	
-	timerIsRunning = YES;
+- (void)start {
+    timerIsRunning = YES;
     doingExercise = YES;
     [exerTable reloadData];
 	[self setTimer];
 	[startPause setTitle:@"Pause" forState:UIControlStateNormal];
 }
 
-- (void)pause	{	
-	
+- (void)pause {		
 	timerIsRunning = NO;
     doingExercise = NO;
 	[timer invalidate];
@@ -171,7 +166,7 @@
 	[startPause setTitle:@"Start" forState:UIControlStateNormal];
 }
 
-- (void)reset	{
+- (void)reset {
     timerIsRunning = NO;
     doingExercise = NO;
     currentExer = 1;
@@ -327,7 +322,7 @@
 
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller {
-    [self reset];
+    //[self reset];
     
 	[self dismissViewControllerAnimated:YES completion:nil];
 }

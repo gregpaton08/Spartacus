@@ -2,8 +2,8 @@
 //  FlipsideViewController.h
 //  spart1
 //
-//  Created by Carlos Sanchez on 1/9/12.
-//  Copyright 2012 __MyCompanyName__. All rights reserved.
+//  Created by Greg PAton on 1/9/12.
+//  Copyright 2012 __GSP__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
