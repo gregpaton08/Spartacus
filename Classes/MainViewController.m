@@ -152,7 +152,7 @@
 //timer controls: start, pause, reset
 - (void)start {
     timerIsRunning = YES;
-    doingExercise = YES;
+    doingExercise = NO;
     [exerTable reloadData];
 	[self setTimer];
 	[startPause setTitle:@"Pause" forState:UIControlStateNormal];
@@ -171,7 +171,8 @@
     doingExercise = NO;
     currentExer = 1;
     currentSet = 1;
-    count = 0.0;
+    //count = 0.0;
+    count = exerTime;
     self.timeDisplay.text = @"0:00.0";
     [self setExerArray];
     [exerTable reloadData];
@@ -190,42 +191,70 @@
 
 -(void)updateCounter:(NSTimer *)theTimer {
 	//increment count by 0.1 seconds
-	count += 0.1;
+	//count += 0.1;
+    // decrement by 0.1 seconds
+    count -= 0.1;
 	
 	//Logic for displaying the exercises
-	if (count+0.1 >= exerTime && doingExercise && currentExer < numExer && currentSet < numSets) {
-		count = 0.0;
-		doingExercise = NO;
-		++currentExer;
-        [exerTable reloadData];
-	}
-	else if (count+0.1 >= betweenTime && doingExercise == NO)	{
-		count = 0.0;
-		doingExercise = YES;
-        [exerTable reloadData];
-	}
-    else if (currentExer >= numExer) {
-        currentExer = 1;
-        ++currentSet;
-        [exerTable reloadData];
-    }
-    else if (currentSet >= numSets) {        
-        if (timerIsRunning) {
-            [self pause];
+    if (count < 0 && doingExercise && currentExer <= numExer && currentSet <= numSets) {
+        // time for break
+        count = betweenTime;
+        doingExercise = NO;
+        ++currentExer;
+        if (currentExer > numExer) {
+            currentExer = 1;
+            ++currentSet;
+            if (currentSet >= numSets) {
+                // workout is done
+                UIAlertView *alertDone = [[UIAlertView alloc] initWithTitle:@"You're done!" message:@"Great workout"
+                                                              delegate:self cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+                alertDone.tag = AlertViewDone;
+                [alertDone show];
+                [alertDone release];
+                
+            }
         }
-        currentExer = 1;
-        currentSet = 1;
-        count = 0.0;
-        self.timeDisplay.text = @"0:00.0";
-        currentExer = 1;
         [exerTable reloadData];
-        
-        UIAlertView *alertDone = [[UIAlertView alloc] initWithTitle:@"You're done!" message:@"Great workout"
-                                                      delegate:self cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
-        alertDone.tag = AlertViewDone;
-        [alertDone show];
-        [alertDone release];
     }
+    else if (count < 0 && doingExercise == NO) {
+        // time for exercise
+        count = exerTime;
+        doingExercise = YES;
+        [exerTable reloadData];
+    }
+//	if (count+0.1 >= exerTime && doingExercise && currentExer < numExer && currentSet < numSets) {
+//		count = 0.0;
+//		doingExercise = NO;
+//		++currentExer;
+//        [exerTable reloadData];
+//	}
+//	else if (count+0.1 >= betweenTime && doingExercise == NO)	{
+//		count = 0.0;
+//		doingExercise = YES;
+//        [exerTable reloadData];
+//	}
+//    else if (currentExer >= numExer) {
+//        currentExer = 1;
+//        ++currentSet;
+//        [exerTable reloadData];
+//    }
+//    else if (currentSet >= numSets) {        
+//        if (timerIsRunning) {
+//            [self pause];
+//        }
+//        currentExer = 1;
+//        currentSet = 1;
+//        count = 0.0;
+//        self.timeDisplay.text = @"0:00.0";
+//        currentExer = 1;
+//        [exerTable reloadData];
+//        
+//        UIAlertView *alertDone = [[UIAlertView alloc] initWithTitle:@"You're done!" message:@"Great workout"
+//                                                      delegate:self cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+//        alertDone.tag = AlertViewDone;
+//        [alertDone show];
+//        [alertDone release];
+//    }
     
 	//padding values less than 10 with a 0
 	NSString *padding;
@@ -309,6 +338,7 @@
 	//check if the exercises are set
 	[self checkIfExerSet];
 	[self setExerArray];
+    justBegun = false;
 	
 	//set height of display (toolbar)
 	[toolBar1 setFrame:CGRectMake(0,0,320,200)];
