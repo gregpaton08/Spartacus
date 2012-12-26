@@ -71,6 +71,11 @@ CGFloat animatedDistance;
     [UIView commitAnimations];
 }
 
+
+
+#pragma mark IBAction
+
+
 - (IBAction)textFieldReturn:(id)sender	{
 	[sender resignFirstResponder];
 }
@@ -91,6 +96,53 @@ CGFloat animatedDistance;
 	[breakTime resignFirstResponder];
 	[numberOfExer resignFirstResponder];
 	[numberOfSets resignFirstResponder];
+}
+
+- (void)enableTextField:(UITextField*)textField {
+    textField.enabled = YES;
+    textField.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)disableTextField:(UITextField*)textField {
+    textField.enabled = NO;
+    textField.backgroundColor = [UIColor grayColor];
+}
+
+- (void)updateExerTextFields:(int)num {
+    switch (num) {
+        case 10: [self enableTextField:text10];
+        case 9: [self enableTextField:text9];
+        case 8: [self enableTextField:text8];
+        case 7: [self enableTextField:text7];
+        case 6: [self enableTextField:text6];
+        case 5: [self enableTextField:text5];
+        case 4: [self enableTextField:text4];
+        case 3: [self enableTextField:text3];
+        case 2: [self enableTextField:text2];
+        case 1: [self enableTextField:text1];
+    }
+    switch (num) {
+        case 0: [self disableTextField:text1];
+        case 1: [self disableTextField:text2];
+        case 2: [self disableTextField:text3];
+        case 3: [self disableTextField:text4];
+        case 4: [self disableTextField:text5];
+        case 5: [self disableTextField:text6];
+        case 6: [self disableTextField:text7];
+        case 7: [self disableTextField:text8];
+        case 8: [self disableTextField:text9];
+        case 9: [self disableTextField:text10];
+    }
+}
+
+- (IBAction)numExerEditingDidEnd:(id)sender {
+    int num = [numberOfExer.text intValue];
+    if (num < 1) 
+        num = 1;
+    else if (num > 10)
+        num = 10;
+    numberOfExer.text = [[NSNumber numberWithInt:num] stringValue];
+    [self updateExerTextFields:num];
 }
 
 
@@ -259,6 +311,7 @@ CGFloat animatedDistance;
 	//*****
 	[self setTextFields];	
 	//*****
+    [self updateExerTextFields:[numberOfExer.text intValue]];
 	
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor viewFlipsideBackgroundColor];      
