@@ -23,7 +23,7 @@
 	int currentExer;	// 1 <= currentExer <= 10
     int currentSet;
 	bool doingExercise;
-    bool justBegun;
+    bool doingBreak;
 	
 	
 	float count;

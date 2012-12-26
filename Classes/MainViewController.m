@@ -52,23 +52,35 @@
     // Set up the cell...
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.textColor = [UIColor blackColor];
 	exerTable.scrollEnabled = NO;
 	
-    if (indexPath.section == 0 && doingExercise == NO && timerIsRunning == NO)
-        cell.textLabel.text = @"Ready?";
-	else if (indexPath.section == 0 && doingExercise == NO)
-        cell.textLabel.text = @"Break";
-    else if (indexPath.section == 0)
-		cell.textLabel.text = [NSString	 stringWithFormat:@"%s", [exer[currentExer] UTF8String]];
+    if (indexPath.section == 0) {
+        if (doingBreak) {
+            cell.textLabel.text = @"Long Break";
+            cell.textLabel.textColor = [UIColor redColor];
+        }
+        else if (doingExercise == NO && timerIsRunning == NO)
+            cell.textLabel.text = @"Ready?";
+        else if (doingExercise == NO) {
+            cell.textLabel.text = @"Break";
+            cell.textLabel.textColor = [UIColor redColor];
+        }
+        else
+            cell.textLabel.text = [NSString	 stringWithFormat:@"%s", [exer[currentExer] UTF8String]];
+    }
 	else {
         NSString *name;
         if (doingExercise == YES)
             ++index;
-        if (index > numExer && currentSet < numSets)
+        if (index > numExer + 1 && currentSet < numSets)
             index = index - numExer;
-        printf("%d\n", index);
         if (index <= numExer)
             name = exer[index];
+        else if (index == numExer + 1) {
+            name = @"Long Break";
+            cell.textLabel.textColor = [UIColor redColor];
+        }
         else
             name = @"";
 		cell.textLabel.text = [NSString	 stringWithFormat:@"%s", [name UTF8String]];
@@ -152,7 +164,7 @@
 //timer controls: start, pause, reset
 - (void)start {
     timerIsRunning = YES;
-    doingExercise = NO;
+    doingExercise = YES;
     [exerTable reloadData];
 	[self setTimer];
 	[startPause setTitle:@"Pause" forState:UIControlStateNormal];
@@ -167,14 +179,22 @@
 }
 
 - (void)reset {
+    [self setExerArray];
     timerIsRunning = NO;
     doingExercise = NO;
     currentExer = 1;
     currentSet = 1;
-    //count = 0.0;
     count = exerTime;
-    self.timeDisplay.text = @"0:00.0";
-    [self setExerArray];
+    //self.timeDisplay.text = @"0:00.0";
+	NSString *padding;
+	if (fmod(exerTime, 60) < 10)
+		padding = @"0";
+	else
+		padding = @"";
+    [timeDisplay setText:[NSString stringWithFormat:@"%0.0f:%s%.1f",
+                                   floor(exerTime/60),
+                                   [padding UTF8String],
+                                   fmod(exerTime, 60)]];
     [exerTable reloadData];
 }
 
@@ -195,23 +215,39 @@
     // decrement by 0.1 seconds
     count -= 0.1;
 	
-	//Logic for displaying the exercises
-    if (count < 0 && doingExercise && currentExer <= numExer && currentSet <= numSets) {
+	if (count < 0 && doingExercise && currentExer <= numExer && currentSet <= numSets) {
         // time for break
         count = betweenTime;
         doingExercise = NO;
+        doingBreak = NO;
         ++currentExer;
         if (currentExer > numExer) {
             currentExer = 1;
             ++currentSet;
             if (currentSet >= numSets) {
                 // workout is done
+                if (timerIsRunning) {
+                    [self pause];
+                }
+                currentExer = 1;
+                currentSet = 1;
+                //count = 0.0;
+                count = exerTime;
+                self.timeDisplay.text = @"0:00.0";
+                currentExer = 1;
+                [exerTable reloadData];
                 UIAlertView *alertDone = [[UIAlertView alloc] initWithTitle:@"You're done!" message:@"Great workout"
                                                               delegate:self cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
                 alertDone.tag = AlertViewDone;
                 [alertDone show];
                 [alertDone release];
                 
+            }
+            else {
+                // break time
+                count = breakTime;
+                doingBreak = YES;
+                doingExercise = NO;
             }
         }
         [exerTable reloadData];
@@ -267,7 +303,7 @@
     
 	//update disp
 	TIME = [[NSString alloc] initWithFormat:@"%0.0f:%s%.1f", floor(count/60), [padding UTF8String], fmod(count, 60)];
-	timeDisplay.text = TIME;	
+	timeDisplay.text = TIME;
 	
 	[TIME release];
 }
@@ -304,11 +340,7 @@
 	}
 	else if (alertView.tag == AlertViewReset) {
 		if (buttonIndex == 1) {
-            currentExer = 1;
-            currentSet = 1;
-			count = 0.0;
-			self.timeDisplay.text = @"0:00.0";
-			[exerTable reloadData];
+            [self reset];
 		}
 	}
     else if (alertView.tag == AlertViewSettings) {
@@ -338,16 +370,31 @@
 	//check if the exercises are set
 	[self checkIfExerSet];
 	[self setExerArray];
-    justBegun = false;
 	
 	//set height of display (toolbar)
 	[toolBar1 setFrame:CGRectMake(0,0,320,200)];
 	
 	//initialize variables
-	count = 0.0;
+	count = exerTime;
 	currentExer = 1;
 	
 	[super viewDidLoad];
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (exerTime != [[defaults objectForKey:@"exerTime"] intValue] ||
+        betweenTime != [[defaults objectForKey:@"betweenTime"] intValue] ||
+        breakTime != [[defaults objectForKey:@"breakTime"] intValue] ||
+        numExer != [[defaults objectForKey:@"numOfExer"] intValue] ||
+        numSets != [[defaults objectForKey:@"numOfSets"] intValue]) {
+        [self reset];
+    }
+    else {
+        [self setExerArray];
+        [exerTable reloadData];
+    }
 }
 
 
